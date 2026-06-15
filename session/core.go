@@ -226,8 +226,22 @@ func (s *session) RunExecute(ctx context.Context, sql string) ([]Record, error) 
 }
 
 func (s *session) LoadOptions(opt SourceOptions) error {
+	opt.db = opt.DB
+	opt.sleep = opt.Sleep
+	opt.sleepRows = opt.SleepRows
+	opt.middlewareExtend = opt.MiddlewareExtend
+	opt.middlewareDB = opt.MiddlewareDB
+	opt.parseHost = opt.ParseHost
+	opt.parsePort = opt.ParsePort
+	opt.fingerprint = opt.Fingerprint
+	opt.split = opt.Split
+	opt.ssl = opt.SSL
+	opt.sslCA = opt.SSLCa
+	opt.sslCert = opt.SSLCert
+	opt.sslKey = opt.SSLKey
+	opt.tranBatch = opt.TranBatch
+
 	s.opt = &opt
-	// return s.parseOptions()
 	return nil
 }
 
